@@ -779,108 +779,109 @@ h3{
 
 /* contact*/
 .contact-body {
-    margin: 0;
     font-family: Arial, sans-serif;
     background: url("../images/uibg.png") center/cover no-repeat;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ffffff;
+    padding: 10px;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .contact-p3r-card {
     background: #1a1a1a;
     border: 1px solid #333;
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 1.2rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
 }
 
 .contact-hud-top {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.65rem;
     color: #00CBF4;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     border-bottom: 1px solid #333;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
 }
 
 .contact-p3r-title{
-    font-size: 2rem;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
     text-transform: uppercase;
-    color: #ffffff;
 }
 
 .contact-p3r-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: #888;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .contact-p3r-input {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .contact-p3r-input label {
     display: block;
-    font-size: 0.75rem;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    font-size: 0.65rem;
+    margin-bottom: 0.2rem;
 }
 
 .contact-p3r-input input, 
-.contact-p3r-input textarea{
+.contact-p3r-input textarea {
     width: 100%;
-    background-color: #ffffff;
-    color: #000000;
+    background: #fff;
     border: 2px solid #4a9eff;
-    padding: 0.8rem;
+    padding: 0.4rem;
+    font-size: 0.9rem;
     outline: none;
-    font-size: 1rem;
-}
-
-.contact-p3r-input input:focus, 
-.contact-p3r-input textarea:focus{
-    border-color: #ffffff;
+    box-sizing: border-box;
 }
 
 .contact-p3r-btn {
     background: #4a9eff;
     color: #000;
     border: none;
-    padding: 1rem 2rem;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 0.6rem;
     width: 100%;
-    transition: 0.3s;
+    font-weight: bold;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 0.5rem;
 }
 
 .contact-p3r-btn:hover{
-    background: #000;
-    color: #ffffff;
+    background: #fff;
 }
 
 .contact-p3r-info {
-    margin-top: 3rem;
-    padding-top: 2rem;
+    margin-top: 1rem;
     border-top: 1px solid #333;
+    padding-top: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .contact-info-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
 }
 
-.contact-info-line span {
-    color: #666;
+/* mobiel */
+@media (max-width: 480px) {
+    .contact-p3r-card {
+        padding: 1rem;
+    }
+    .contact-hud-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+    }
 }
