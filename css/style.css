@@ -776,3 +776,111 @@ h3{
     color: black;
     font-weight: bold;
 }
+
+/* contact*/
+.contact-body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("../images/uibg.png") center/cover no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.contact-p3r-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.contact-hud-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #00CBF4;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.contact-p3r-title{
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.contact-p3r-subtitle {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+.contact-p3r-input {
+    margin-bottom: 1.5rem;
+}
+
+.contact-p3r-input label {
+    display: block;
+    font-size: 0.75rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.contact-p3r-input input, 
+.contact-p3r-input textarea{
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #4a9eff;
+    padding: 0.8rem;
+    outline: none;
+    font-size: 1rem;
+}
+
+.contact-p3r-input input:focus, 
+.contact-p3r-input textarea:focus{
+    border-color: #ffffff;
+}
+
+.contact-p3r-btn {
+    background: #4a9eff;
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.contact-p3r-btn:hover{
+    background: #000;
+    color: #ffffff;
+}
+
+.contact-p3r-info {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+.contact-info-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.contact-info-line span {
+    color: #666;
+}
