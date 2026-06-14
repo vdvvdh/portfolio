@@ -38,10 +38,15 @@ class P3RMenu{
                 }
             });
             
-            item.addEventListener('click', () => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = (item as HTMLAnchorElement).getAttribute('href');
                 this.startBGM();
                 this.play(this.sfxSelect);
-            });
+                this.focusItem(index);
+                setTimeout(() => {
+                    if (href && href !== '#') {window.location.href = href;}}, 180);
+                });
             
             item.addEventListener('keydown', (e) => {
                 this.startBGM();

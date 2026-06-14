@@ -32,13 +32,12 @@ class P3RProjectsMenu {
         });
     }
     updateActiveProject(index) {
-        if (this.items[this.currentIndex]) {
-            this.items[this.currentIndex].classList.remove('active');
-        }
+        var _a;
+        (_a = this.items[this.currentIndex]) === null || _a === void 0 ? void 0 : _a.classList.remove('active');
         this.currentIndex = index;
         const activeItem = this.items[this.currentIndex];
         activeItem.classList.add('active');
-        const { tag, title, desc, img, code, demo } = activeItem.dataset;
+        const { tag, title, desc, img, code } = activeItem.dataset;
         if (this.txtTag && tag)
             this.txtTag.textContent = tag;
         if (this.txtTitle && title)
@@ -51,8 +50,9 @@ class P3RProjectsMenu {
             this.linkCode.href = code;
     }
     play(audio) {
-        audio.currentTime = 0;
-        audio.play().catch(() => { });
+        const clone = audio.cloneNode(true);
+        clone.volume = audio.volume || 1;
+        clone.play().catch(() => { });
     }
 }
 document.addEventListener('DOMContentLoaded', () => new P3RProjectsMenu());

@@ -37,16 +37,14 @@ class P3RProjectsMenu{
         });
     }
 
-    private updateActiveProject(index: number){
-        if (this.items[this.currentIndex]) {
-            this.items[this.currentIndex].classList.remove('active');
-        }
-        
+    private updateActiveProject(index: number) {
+        this.items[this.currentIndex]?.classList.remove('active');
+
         this.currentIndex = index;
         const activeItem = this.items[this.currentIndex];
         activeItem.classList.add('active');
 
-        const { tag, title, desc, img, code, demo } = activeItem.dataset;
+        const { tag, title, desc, img, code } = activeItem.dataset;
 
         if (this.txtTag && tag) this.txtTag.textContent = tag;
         if (this.txtTitle && title) this.txtTitle.textContent = title;
@@ -55,9 +53,10 @@ class P3RProjectsMenu{
         if (this.linkCode && code) this.linkCode.href = code;
     }
 
-    private play(audio: HTMLAudioElement){
-        audio.currentTime = 0;
-        audio.play().catch(() => {});
+    private play(audio: HTMLAudioElement) {
+        const clone = audio.cloneNode(true) as HTMLAudioElement;
+        clone.volume = audio.volume || 1;
+        clone.play().catch(() => {});
     }
 }
 
