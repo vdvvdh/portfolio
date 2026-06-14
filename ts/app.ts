@@ -16,8 +16,8 @@ class P3RMenu{
     constructor() {
         if (!this.items.length) return;
 
-        this.bgMusic.loop =true;      
-        this.bgMusic.volume =this.currentVolume;
+        this.bgMusic.loop = true;
+        this.bgMusic.volume = this.currentVolume;
 
         this.init();
     }
@@ -37,7 +37,7 @@ class P3RMenu{
                     this.focusItem(index);
                 }
             });
-            
+
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 const href = (item as HTMLAnchorElement).getAttribute('href');
@@ -45,40 +45,36 @@ class P3RMenu{
                 this.play(this.sfxSelect);
                 this.focusItem(index);
                 setTimeout(() => {
-                    if (href && href !== '#') {window.location.href = href;}}, 180);
-                });
-            
-            item.addEventListener('keydown', (e) => {
-                this.startBGM();
-                this.handleKeys(e, index);
+                    if (href && href !== '#') { window.location.href = href; }
+                }, 180);
             });
         });
 
         document.addEventListener('click', () => this.startBGM(), { once: true });
     }
 
-    private startBGM(){
+    private startBGM() {
         if (!this.isMuted && this.bgMusic.paused) {
-            this.bgMusic.play().catch(() => {});
+            this.bgMusic.play().catch(() => { });
         }
     }
 
     private handleVolume(e: Event) {
         const value = parseFloat((e.target as HTMLInputElement).value) / 100;
-        
+
         this.bgMusic.volume = value;
         this.currentVolume = value;
         this.isMuted = value === 0;
-        
+
         this.updateUI();
     }
 
     private toggleMute() {
         this.isMuted = !this.isMuted;
-        
-        this.bgMusic.volume = this.isMuted ? 0 :this.currentVolume;
+
+        this.bgMusic.volume = this.isMuted ? 0 : this.currentVolume;
         if (this.slider) this.slider.value = (this.bgMusic.volume * 100).toString();
-        
+
         this.updateUI();
         if (!this.isMuted) this.startBGM();
     }
@@ -90,31 +86,13 @@ class P3RMenu{
 
     private play(audio: HTMLAudioElement) {
         audio.currentTime = 0;
-        audio.play().catch(() =>{});
+        audio.play().catch(() => { });
     }
 
     private focusItem(index: number) {
         this.items[this.currentIndex].classList.remove('active');
         this.currentIndex = index;
         this.items[this.currentIndex].classList.add('active');
-    }
-
-    private handleKeys(e: KeyboardEvent, index: number) {
-        if (e.key !== 'ArrowDown' && e.key !=='ArrowUp' && e.key !== 'Enter' && e.key !== ' ') return;
-        
-        if (e.key === 'ArrowDown' || e.key ==='ArrowUp') {
-            e.preventDefault();
-            let nextIndex = e.key === 'ArrowDown' ? index +1 : index -1;
-            
-            if (nextIndex >= this.items.length) nextIndex = 0;
-            if (nextIndex < 0) nextIndex = this.items.length - 1;
-            
-            this.play(e.key === 'ArrowDown' ? this.sfxDown : this.sfxUp);
-            this.focusItem(nextIndex);
-            this.items[nextIndex].focus();
-        }else{
-            this.play(this.sfxSelect);
-        }
     }
 }
 

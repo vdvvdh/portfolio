@@ -45,10 +45,6 @@ class P3RMenu {
                     }
                 }, 180);
             });
-            item.addEventListener('keydown', (e) => {
-                this.startBGM();
-                this.handleKeys(e, index);
-            });
         });
         document.addEventListener('click', () => this.startBGM(), { once: true });
     }
@@ -87,24 +83,6 @@ class P3RMenu {
         this.items[this.currentIndex].classList.remove('active');
         this.currentIndex = index;
         this.items[this.currentIndex].classList.add('active');
-    }
-    handleKeys(e, index) {
-        if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Enter' && e.key !== ' ')
-            return;
-        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-            e.preventDefault();
-            let nextIndex = e.key === 'ArrowDown' ? index + 1 : index - 1;
-            if (nextIndex >= this.items.length)
-                nextIndex = 0;
-            if (nextIndex < 0)
-                nextIndex = this.items.length - 1;
-            this.play(e.key === 'ArrowDown' ? this.sfxDown : this.sfxUp);
-            this.focusItem(nextIndex);
-            this.items[nextIndex].focus();
-        }
-        else {
-            this.play(this.sfxSelect);
-        }
     }
 }
 document.addEventListener('DOMContentLoaded', () => new P3RMenu());
